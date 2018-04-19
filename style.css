@@ -1,0 +1,88 @@
+@media (min-width: 30em) {
+    .row { width: 100%; display: table; table-layout: fixed; }
+    .col { display: table-cell; }
+}
+html {
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+input {
+	font-size: 12pt;
+	padding: 0pt;
+}
+
+div {
+	padding: 1pt;	
+}
+
+.w100 {
+ 	width: 100px;
+ 	text-align: left;
+}
+
+.w200 {
+ 	width: 200px;
+ 	text-align: left;
+}
+
+.dataline {
+	font-family: monospace;
+}
+
+div.dataline:nth-child(even) {background: #ffffff}
+div.dataline:nth-child(odd) {background: #f0f8ff}
+
+.help {
+	cursor: help;
+}
+
+.sorter {
+	cursor: n-resize;
+}
+
+.header {
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+.filter-label {
+	font-size: 10pt;
+	font-weight: bold;	
+}
+
+ .visible {
+ 	display: block;
+ }
+
+ .invisible {
+ 	display: none;
+ }
+
+ .activeButton {
+    background-color: #5A5;
+    color: white;
+    border: 2px solid #090; /* Green */
+ }
+
+ .restingButton {
+    background-color: white;
+    color: black;
+    border: 2px solid black; /* Green */
+}
+
+.error {
+	color: red;
+}
+
+/* HAR! */
+.blinking {
+	color: #ff7400;
+    animation: blinker 2s ease-in infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
