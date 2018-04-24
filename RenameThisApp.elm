@@ -7,7 +7,9 @@ module RenameThisApp exposing (init, main, update, view)
     A convenience for beginners like me who don't care for
     the more heavy-handed/opinionated project generators. :)
 
+
 # Program Functions
+
 @docs init, main, update, view
 
 -}
@@ -22,7 +24,9 @@ import Json.Decode as Json exposing (..)
 
 
 type alias Flags =
-    { incomingRecords : List Int }
+    { incomingRecords : List Int
+    , someData : String
+    }
 
 
 type alias Model =
@@ -86,7 +90,7 @@ handleToggleSomeState model =
 
 handleButtonPressed : Model -> ( Model, Cmd Msg )
 handleButtonPressed model =
-    if (List.length model.displayedRecords) == 0 then
+    if List.length model.displayedRecords == 0 then
         ( { model | displayedRecords = List.map someTransform model.flagRecords }, Cmd.none )
     else
         ( { model | displayedRecords = [] }, Cmd.none )
@@ -105,12 +109,10 @@ view : Model -> Html Msg
 view model =
     let
         toggledClass =
-            case model.toggableState of
-                True ->
-                    "row blinking"
-
-                False ->
-                    "row"
+            if model.toggableState then
+                "row blinking"
+            else
+                "row"
 
         recordCount =
             List.length model.displayedRecords
@@ -149,7 +151,7 @@ view model =
                 [ div [ class "col w200" ] [ text model.col1Value ]
                 , div [ class "col w100" ] [ text "col2" ]
                 , div [ class "col w100" ] [ text (toString model.displayedRecords) ]
-                , div [ class "col " ] []
+                , div [ class "col " ] [ text (toString recordCount) ]
                 ]
             ]
 
